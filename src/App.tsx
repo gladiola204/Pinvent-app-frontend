@@ -22,6 +22,7 @@ import EditProfile from './pages/profile/EditProfile';
 import Contact from './pages/contact/Contact';
 
 axios.defaults.withCredentials = true;
+axios.defaults.headers.post['Access-Control-Allow-Origin'] = "*"; 
 
 function App() {
   const dispatch = useDispatch();

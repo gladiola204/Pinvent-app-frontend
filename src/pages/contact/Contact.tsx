@@ -5,8 +5,7 @@ import Card from "../../components/card/Card";
 import { FaPhoneAlt, FaEnvelope, FaTwitter } from "react-icons/fa";
 import { GoLocation } from 'react-icons/go';
 import { toast } from "react-toastify";
-import axios from "axios";
-import { BACKEND_URL } from "../../services/authService";
+import request from "../../services/axios/axios";
 
 type IFormData = {
     subject: string,
@@ -30,7 +29,7 @@ function Contact() {
     const sendEmail = async(event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         try {
-            const response = await axios.post( `${BACKEND_URL}/api/contact`, formData);
+            const response = await request.post( `/api/contact`, formData);
             setFormData({subject: '', message: ''});
             toast.success(response.data.message);
         } catch (error: any) {

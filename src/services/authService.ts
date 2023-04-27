@@ -32,7 +32,7 @@ export async function registerUser(userData:userDataType) {
 export async function loginUser(userData: {email: string, password: string}) {
     try {
         const response = await request.post(`${API_URL}/login`, userData);
-
+        console.log(response);
         if(response.statusText === 'OK') {
             toast.success("User logged in succesfully");
         }
